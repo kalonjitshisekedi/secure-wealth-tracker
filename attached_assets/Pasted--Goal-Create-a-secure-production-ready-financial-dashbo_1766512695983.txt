@@ -1,0 +1,27 @@
+# Goal
+Create a secure, production-ready financial dashboard application that reads from a private Google Drive spreadsheet, includes user authentication, and is deployable on AWS using Python as the primary language.
+
+# Return Format
+The assistant should provide:
+1. A complete Python application structure with all necessary components (authentication, data fetching, dashboard UI, deployment configuration)
+2. A detailed Google Sheets template specification showing the exact column structure, data types, and formatting required for financial tracking
+3. Step-by-step deployment instructions for AWS (including IAM setup, environment configuration, and required AWS services)
+4. All code should be production-ready with error handling, security best practices, and clear comments
+5. A requirements.txt file with all dependencies pinned to specific versions
+
+# Warnings
+- Ensure Google Drive API credentials are never hardcoded; use environment variables and AWS Secrets Manager
+- The application must validate all data from the spreadsheet before processing to prevent injection attacks or data corruption
+- Authentication tokens and session management must be implemented securely; avoid storing sensitive data in browser storage
+- The spreadsheet connection must include retry logic and timeout handling for network failures
+- Ensure the dashboard respects Google Sheets API rate limits (300 requests per minute per user)
+- The application must handle cases where the spreadsheet is deleted, moved, or permissions are revoked
+- Consider data freshness requirements; implement appropriate caching strategies to balance real-time updates with API quota limits
+
+# Context
+- Primary language: Python
+- Deployment target: AWS (specify preferred services: Lambda, EC2, ECS, or Beanstalk)
+- Data source: Private Google Drive spreadsheet requiring OAuth2 authentication
+- Purpose: Personal financial tracking with login-based access control
+- Use Python-based frameworks and tools wherever possible to maintain consistency
+- The application must support secure multi-user access with individual login credentials
